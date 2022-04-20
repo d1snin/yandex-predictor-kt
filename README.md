@@ -15,3 +15,22 @@ dependencies {
     implementation("dev.d1s:yandex-predictor-kt:$yandexPredictorVersion")
 }
 ```
+
+### Example usage
+
+```kotlin
+const val API_KEY = "api key"
+
+val predictor = yandexPredictor(API_KEY)
+
+fun main() {
+    println(
+        runBlocking {
+            predictor.complete("Kotlin programming language is a great ")
+                .firstCompletion()
+        }
+    )
+
+    // "deal"
+}
+```
